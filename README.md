@@ -85,7 +85,7 @@ We focus on **correlation-based and visualization-based insights**. :
 - Calculating correlations: `Series.corr()`
 - Conditional logic (`if/elif/else`) to interpret correlations
 
-- 📈 Analysis Performed
+- **📈 Analysis Performed**
 
 Main steps performed in the project:
 Data Ingestion
@@ -98,12 +98,12 @@ Converted data types to int / float where needed.
 Handled missing values (NaN, blanks, "N/A", etc.).
 Removed unrealistic outliers (e.g., screen time > 15 hours, sleep > 14 hours).
 
-Feature Understanding
+**Feature Understanding**
 Focused on mental health related columns:
 stress_level, anxiety_level, mood_level, sleep_hours_avg,
 physical_activity, device_addiction_score, etc.
 
-Correlation Analysis
+**Correlation Analysis**
 Measured relationships such as:
 Screen time vs anxiety/sleep
 Physical activity vs mood
@@ -121,7 +121,7 @@ Cleaned dataset: social_media_health_clean.csv
 Graphs and printed insights from the notebook.
 - Exporting cleaned data: `df.to_csv(...)`
 ---
-📌 Key Findings / Interpretation
+📌 **Key Findings / Interpretation**
 From the cleaned dataset and visual analysis, the following patterns were observed:
 High social media usage is associated with:
 Higher stress and anxiety scores
@@ -135,16 +135,16 @@ Improved balance between online time and real-life activity
 Physical activity helps:
 Acts as a positive stabilizer for mood and anxiety.
 
-Overall conclusion:
+**Overall conclusion:**
 Social media is not completely harmful, but excessive and unregulated use is clearly linked with worse mental health outcomes. Balanced use plus regular physical activity leads to better well-being.
 
-🔮 Possible Future Improvements
+🔮 **Possible Future Improvements**
 Add a simple machine learning model to predict mental health status from usage patterns.
 Collect a larger real-world dataset via surveys or APIs.
 Compare results across age groups / platforms.
 Automate report generation.
 
-Acknowledgements:
+**Acknowledgements:**
 Instructor / Guide: Prof. Madhuri Bhalekar
 Dataset design and project guidance inspired by:
 Pandas Documentation
