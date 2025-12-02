@@ -161,7 +161,7 @@ Balanced usage + healthier habits → improved well-being.
 
 ---
 
-## 🌐 Interactive Web Dashboard (New Feature)
+## 🌐 Interactive Web Dashboard
 
 A fully functional **HTML + JavaScript dashboard** was developed to allow users to:
 
@@ -206,7 +206,7 @@ This makes the interface both **analytical and user-friendly**.
 
 ---
 
-## 🙏 Acknowledgements
+##  Acknowledgements
 
 - Instructor / Guide: **Prof. Madhuri Bhalekar**  
 - Tools used: Pandas, NumPy, Matplotlib  
