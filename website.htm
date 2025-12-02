@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Social Media & Health Dashboard</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: #f0f2f5;
+        }
+
+        header {
+            background: linear-gradient(90deg, #6a11cb, #2575fc);
+            padding: 30px;
+            text-align: center;
+            color: white;
+            font-size: 36px;
+            font-weight: bold;
+        }
+
+        .container {
+            width: 90%;
+            margin: auto;
+            margin-top: 30px;
+        }
+
+        .card {
+            background: white;
+            padding: 22px;
+            border-radius: 15px;
+            margin-bottom: 35px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        h2 { color: #222; }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            font-size: 16px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background: #6a11cb;
+            color: white;
+        }
+
+        .input-box { margin: 12px 0; }
+
+        label {
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        input {
+            padding: 10px;
+            width: 100%;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            margin-top: 5px;
+        }
+
+        .beauty-btn {
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            padding: 14px;
+            color: white;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 18px;
+            margin-top: 18px;
+            width: 100%;
+            font-weight: bold;
+            transition: 0.25s;
+        }
+
+        .beauty-btn:hover {
+            transform: translateY(-3px);
+            background: linear-gradient(135deg, #2575fc, #6a11cb);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+
+        .error {
+            background: #ffe5e5;
+            border-left: 6px solid #ff3b3b;
+            padding: 12px;
+            border-radius: 10px;
+            margin-top: 12px;
+            color: #a40000;
+            font-size: 16px;
+        }
+
+        .result-box {
+            display: none;
+            margin-top: 20px;
+        }
+
+        .result-section {
+            background: white;
+            padding: 22px;
+            border-radius: 12px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.12);
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {opacity:0; transform:translateY(8px);}
+            to {opacity:1; transform:translateY(0);}
+        }
+
+        .result-title {
+            font-size: 22px;
+            font-weight: bold;
+            border-left: 5px solid #6a11cb;
+            padding-left: 10px;
+            margin-bottom: 10px;
+        }
+
+        .metric-boxes {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 18px;
+        }
+
+        .metric {
+            flex: 1;
+            padding: 15px;
+            border-radius: 12px;
+            background: #f7f4ff;
+            text-align: center;
+        }
+
+        .metric h3 {
+            margin:0;
+            font-size: 28px;
+            color:#6a11cb;
+        }
+
+        .metric p { margin:5px 0 0; font-size:14px; }
+
+        .red { background:#ffe2e2; border-left:5px solid #ff3b3b; }
+        .orange { background:#fff0d6; border-left:5px solid #ffa600; }
+        .green { background:#e6ffe8; border-left:5px solid #22bb33; }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .graph-card {
+            background: white;
+            padding: 12px;
+            border-radius: 14px;
+            text-align:center;
+            box-shadow:0 3px 8px rgba(0,0,0,0.15);
+        }
+
+        .graph-image {
+            width:100%;
+            height:auto;
+            border-radius:12px;
+        }
+
+        .graph-title {
+            margin-top:8px;
+            font-size:17px;
+            font-weight:bold;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>Social Media & Health Dashboard</header>
+
+<div class="container">
+
+    <div class="card">
+        <h2>📘 Introduction</h2>
+        <p style="font-size:17px; line-height:1.6; text-align:justify;">
+            This dashboard evaluates how your <b>screen time, sleep, stress, anxiety</b> and 
+            <b>social media usage</b> affect your well-being.
+        </p>
+    </div>
+
+    <div class="card">
+        <h2>🧠 Stress Score Interpretation</h2>
+        <table>
+            <tr><th>Score Range</th><th>Interpretation</th><th>Meaning</th></tr>
+            <tr><td>0–3</td><td>Low</td><td>Calm, relaxed.</td></tr>
+            <tr><td>4–6</td><td>Moderate</td><td>Workload pressure.</td></tr>
+            <tr><td>7–10</td><td>High</td><td>Overwhelm, tension.</td></tr>
+        </table>
+    </div>
+
+    <div class="card">
+        <h2>😟 Anxiety Score Interpretation</h2>
+        <table>
+            <tr><th>Score Range</th><th>Interpretation</th><th>Meaning</th></tr>
+            <tr><td>0–3</td><td>Low</td><td>Minimal worry.</td></tr>
+            <tr><td>4–6</td><td>Moderate</td><td>Restlessness.</td></tr>
+            <tr><td>7–10</td><td>High</td><td>Panic symptoms.</td></tr>
+        </table>
+    </div>
+
+    <div class="card">
+        <h2>🔍 Health & Behaviour Predictor</h2>
+
+        <div id="error-box"></div>
+
+        <div class="input-box">
+            <label>Daily Screen Time (hours)</label>
+            <input id="screen" type="number">
+        </div>
+
+        <div class="input-box">
+            <label>Sleep Duration (hours)</label>
+            <input id="sleep" type="number">
+        </div>
+
+        <div class="input-box">
+            <label>Social Media Usage (hours)</label>
+            <input id="social" type="number">
+        </div>
+
+        <div class="input-box">
+            <label>Stress Level (0–10)</label>
+            <input id="stress" type="number">
+        </div>
+
+        <div class="input-box">
+            <label>Anxiety Level (0–10)</label>
+            <input id="anxiety" type="number">
+        </div>
+
+        <button class="beauty-btn" onclick="calculate()">Get Result</button>
+
+        <div id="result" class="result-box"></div>
+    </div>
+
+    <div class="card">
+        <h2>📊 Visual Data Insights</h2>
+        <div class="grid">
+            <div class="graph-card">
+                <img class="graph-image" src="bar.png">
+                <div class="graph-title">Daily Social Media Hours</div>
+            </div>
+
+            <div class="graph-card">
+                <img class="graph-image" src="histo.png">
+                <div class="graph-title">Happiness Distribution</div>
+            </div>
+
+            <div class="graph-card">
+                <img class="graph-image" src="pie.png">
+                <div class="graph-title">Stress vs Screen-Time</div>
+            </div>
+
+            <div class="graph-card">
+                <img class="graph-image" src="scatter.png">
+                <div class="graph-title">Anxiety Categories</div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+function calculate() {
+    let screen = parseFloat(document.getElementById("screen").value);
+    let sleep = parseFloat(document.getElementById("sleep").value);
+    let social = parseFloat(document.getElementById("social").value);
+    let stress = parseFloat(document.getElementById("stress").value);
+    let anxiety = parseFloat(document.getElementById("anxiety").value);
+
+    let errorBox = document.getElementById("error-box");
+    let box = document.getElementById("result");
+
+    errorBox.innerHTML = "";
+    box.style.display = "none";
+
+    if (isNaN(screen) || isNaN(sleep) || isNaN(social) ||
+        isNaN(stress) || isNaN(anxiety)) {
+        errorBox.innerHTML = '<div class="error">❌ Please fill out all fields.</div>';
+        return;
+    }
+
+    if (screen < 0 || sleep < 0 || social < 0) {
+        errorBox.innerHTML = '<div class="error">❌ Hours cannot be negative.</div>';
+        return;
+    }
+
+    if (stress < 0 || stress > 10 || anxiety < 0 || anxiety > 10) {
+        errorBox.innerHTML = '<div class="error">❌ Stress & Anxiety must be between 0–10.</div>';
+        return;
+    }
+
+    if (social > screen) {
+        errorBox.innerHTML = '<div class="error">❌ Social media hours cannot exceed total screen time.</div>';
+        return;
+    }
+
+    if (screen + sleep + social > 24) {
+        errorBox.innerHTML = '<div class="error">❌ Total of screen + sleep + social cannot exceed 24 hours.</div>';
+        return;
+    }
+
+    let predicted_stress =
+        Math.min(10, Math.max(0, (screen * 0.8) + ((8 - sleep) * 1.2) + (social * 0.5)));
+
+    let predicted_anxiety =
+        Math.min(10, Math.max(0, (predicted_stress * 0.6) + (social * 0.4)));
+
+    let predicted_eye =
+        Math.min(10, Math.max(0, ((screen * 8 + social * 2) / 100) * 10));
+
+    function color(val) {
+        if (val >= 7) return "red";
+        if (val >= 4) return "orange";
+        return "green";
+    }
+
+    let stressColor = color(predicted_stress);
+    let anxietyColor = color(predicted_anxiety);
+    let eyeColor = color(predicted_eye);
+
+    function lifestyle() {
+        let o = "";
+        o += sleep < 6 ? "• Low sleep — aim for 7–9 hours.<br>" : "• Healthy sleep amount.<br>";
+        o += screen > 8 ? "• Very high screen time — reduce usage.<br>" :
+             screen > 6 ? "• Slightly high screen-time — take breaks.<br>" :
+                          "• Healthy screen habits.<br>";
+        o += social > 6 ? "• High social media use — consider digital detox.<br>" :
+                          "• Balanced social media usage.<br>";
+        o += stress > 6 ? "• Your entered stress level is high.<br>" :
+                          "• Stress is manageable.<br>";
+        o += anxiety > 6 ? "• Your entered anxiety level is high.<br>" :
+                           "• Anxiety is safe.<br>";
+        return o;
+    }
+
+    function doctors() {
+        let d = "";
+        if (stress > 7 || predicted_stress > 7)
+            d += "• Consult a Psychologist for stress management.<br>";
+        if (anxiety > 7 || predicted_anxiety > 7)
+            d += "• Meet a Mental Health Specialist for anxiety.<br>";
+        if (screen > 8)
+            d += "• Visit an Eye Specialist for digital eye strain.<br>";
+        if (sleep < 5)
+            d += "• Consider seeing a Sleep Therapist.<br>";
+        return d || "• You're doing well — no doctor visit needed.";
+    }
+
+    let score = 0;
+    if (sleep >= 6 && sleep <= 9) score++;
+    if (screen <= 6) score++;
+    if (social <= 4) score++;
+    if (stress <= 5) score++;
+    if (anxiety <= 4.5) score++;
+
+    let final =
+        score <= 2 ? "<b style='color:#ff3b3b'>Unhealthy — urgent lifestyle changes needed.</b>" :
+        score === 3 ? "<b style='color:#ffa600'>Average — moderate condition.</b>" :
+                      "<b style='color:#22bb33'>Healthy — balanced lifestyle!</b>";
+
+    box.innerHTML = `
+        <div class="result-section">
+            <div class="result-title">Predicted Health Scores</div>
+
+            <div class="metric-boxes">
+                <div class="metric ${stressColor}">
+                    <h3>${predicted_stress.toFixed(1)}</h3>
+                    <p>Stress (0–10)</p>
+                </div>
+
+                <div class="metric ${anxietyColor}">
+                    <h3>${predicted_anxiety.toFixed(1)}</h3>
+                    <p>Anxiety (0–10)</p>
+                </div>
+
+                <div class="metric ${eyeColor}">
+                    <h3>${predicted_eye.toFixed(1)}</h3>
+                    <p>Eye Strain (0–10)</p>
+                </div>
+            </div>
+
+            <div class="result-title">Lifestyle Assessment</div>
+            <p>${lifestyle()}</p>
+
+            <div class="result-title">Doctor Recommendations</div>
+            <p>${doctors()}</p>
+
+            <div class="result-title">Final Health Status</div>
+            <p>${final}</p>
+        </div>
+    `;
+
+    box.style.display = "block";
+}
+</script>
+
+</body>
+</html>
